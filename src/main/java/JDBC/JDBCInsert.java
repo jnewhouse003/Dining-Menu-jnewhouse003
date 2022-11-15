@@ -13,11 +13,14 @@ private Connection myConnection = null;
     		if(myConnection == null)
     		{
     			myConnection = DriverManager.getConnection("jdbc:sqlite:/home/jbrownlee001/Dining Menu Database/databaseV9.db");
+
     		}
     		else
     		{
     			myConnection.close();
     			myConnection = DriverManager.getConnection("jdbc:sqlite:/home/jbrownlee001/Dining Menu Database/databaseV9.db");
+
+
     		}
     		return myConnection;
     		
@@ -47,10 +50,12 @@ private Connection myConnection = null;
         	
         	if(myRes.getString(1) != null && myRes.getString(2) != null)
         	{
+        		myRes.close();
         		return 1;
         	}
         	else
         	{
+        		myRes.close();
         		return -1;
         	}
         	   	        	
@@ -67,7 +72,7 @@ private Connection myConnection = null;
     {
     	try 
         {
-           if(userAlreadyExists(email) == -1)
+           if(userAlreadyExists(email) != 1)
            {
 	        	//Connection
 	           	Connection myConn = openDBConnection();
@@ -96,7 +101,7 @@ private Connection myConnection = null;
            }
            else
            {
-        	   return "An account with that username already exists.";
+        	  return "An account with that username already exists.";
            }
     		
         } 
@@ -124,10 +129,12 @@ private Connection myConnection = null;
         	
         	if(myRes.getString(1) != null)
         	{
+        		myRes.close();
         		return 1;
         	}
         	else
         	{
+        		myRes.close();
         		return -1;
         	}
         	   	        	
@@ -155,10 +162,12 @@ private Connection myConnection = null;
         	
         	if(myRes.getString(1) != null)
         	{
+        		myRes.close();
         		return 1;
         	}
         	else
         	{
+        		myRes.close();
         		return -1;
         	}
         	   	        	
@@ -186,10 +195,12 @@ private Connection myConnection = null;
         	
         	if(myRes.getString(1) != null)
         	{
+        		myRes.close();
         		return 1;
         	}
         	else
         	{
+        		myRes.close();
         		return -1;
         	}
         	   	        	
@@ -206,7 +217,7 @@ private Connection myConnection = null;
     {
     	try 
         {
-           if(reviewAlreadyExists(email, foodItem) == -1)
+           if(reviewAlreadyExists(email, foodItem) != 1)
            {
 	        	//Connection
 	           	Connection myConn = openDBConnection();
@@ -254,7 +265,7 @@ private Connection myConnection = null;
     {
     	try 
         {
-           if(favoriteAlreadyExists(email, foodItem) == -1)
+           if(favoriteAlreadyExists(email, foodItem) != 1)
            {
 	        	//Connection
 	           	Connection myConn = openDBConnection();
