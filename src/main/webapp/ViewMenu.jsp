@@ -10,6 +10,9 @@ String day = request.getParameter("SelectedDay");
 //prints the day to console
 System.out.println(day);
 
+/**Takes the button that was pressed on the hompage and changes it to the date. dayParam is used
+* later to get and display the correct menu.
+*/
 String dayParam = "";
 if(day.equals("Sunday"))
 {
@@ -133,7 +136,7 @@ out.println(day+"'s Menu");
 
 	<!-- element to return to home page -->
 	<div class="footer">
-		<a href="HomePage.html">Back to Home Page</a>
+		<a href="HomePage.jsp">Back to Home Page</a>
 	</div>
 </body>
 </html>
